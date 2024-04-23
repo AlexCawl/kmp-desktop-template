@@ -12,4 +12,12 @@ pluginManagement {
     }
 }
 
+dependencyResolutionManagement {
+    @Suppress("UnstableApiUsage")
+    repositories {
+        mavenCentral()
+        google()
+    }
+}
+
 rootProject.name = "kmp-desktop-template"
