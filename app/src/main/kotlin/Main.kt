@@ -20,6 +20,7 @@ fun App() {
             text = Test.hello
         }) {
             Text(text)
+            Test.test()
         }
     }
 }

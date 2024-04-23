@@ -8,12 +8,6 @@ plugins {
 group = "org.alexcawl.template"
 version = "1.0-SNAPSHOT"
 
-repositories {
-    mavenCentral()
-    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
-    google()
-}
-
 dependencies {
     // Note, if you develop a library, you should use compose.desktop.common.
     // compose.desktop.currentOs should be used in launcher-sourceSet
