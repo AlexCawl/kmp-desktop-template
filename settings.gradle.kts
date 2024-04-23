@@ -17,7 +17,12 @@ dependencyResolutionManagement {
     repositories {
         mavenCentral()
         google()
+        maven("https://jitpack.io")
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 }
 
 rootProject.name = "kmp-desktop-template"
+
+include(":app")
+include(":util")
