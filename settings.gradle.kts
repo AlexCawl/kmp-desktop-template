@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 pluginManagement {
     repositories {
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
@@ -13,7 +15,6 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-    @Suppress("UnstableApiUsage")
     repositories {
         mavenCentral()
         google()
@@ -26,3 +27,7 @@ rootProject.name = "kmp-desktop-template"
 
 include(":app")
 include(":util")
+include(":core:common")
+include(":core:data")
+include(":core:di")
+include(":core:ui")
