@@ -5,6 +5,7 @@ val libs = the<org.gradle.accessors.dm.LibrariesForLibs>()
 
 plugins {
     kotlin("jvm")
+    kotlin("plugin.serialization")
 }
 
 kotlin {
@@ -14,6 +15,7 @@ kotlin {
 }
 
 dependencies {
+    implementation(libs.kotlinx.serialization.json)
     testImplementation(kotlin("test"))
 }
 
