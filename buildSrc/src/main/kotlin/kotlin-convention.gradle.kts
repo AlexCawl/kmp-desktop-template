@@ -4,8 +4,8 @@
 val libs = the<org.gradle.accessors.dm.LibrariesForLibs>()
 
 plugins {
-    kotlin("jvm")
-    kotlin("plugin.serialization")
+    id("org.jetbrains.kotlin.jvm")
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 kotlin {
@@ -16,7 +16,7 @@ kotlin {
 
 dependencies {
     implementation(libs.kotlinx.serialization.json)
-    testImplementation(kotlin("test"))
+    testImplementation(libs.junit)
 }
 
 tasks.test {

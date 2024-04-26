@@ -4,13 +4,14 @@ plugins {
 
 repositories {
     google()
-    mavenLocal()
     gradlePluginPortal()
 }
 
 dependencies {
     // Workaround: https://github.com/gradle/gradle/issues/15383
     implementation(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
-    implementation(libs.pdep.kotlin.gradle)
-    implementation(libs.pdep.kotlin.serialization)
+
+    // Plugins as dependencies
+    implementation(libs.pluginDependency.kotlin.gradle) // -> kotlin("jvm")
+    implementation(libs.pluginDependency.kotlin.serialization) // -> kotlin("plugin.serialization")
 }
