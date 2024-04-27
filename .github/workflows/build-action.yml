@@ -2,7 +2,6 @@ name: Build Gradle project
 
 on:
   pull_request:
-  push:
 
 env:
   JAVA_VERSION: 17
