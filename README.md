@@ -23,3 +23,12 @@
 ### Network
 
 **Do it by yourself...** 🥶
+
+--- 
+
+### CI/CD
+
+**GitHub Actions** 🥳
+
+- Building && Testing for pull_request trigger
+- Release for native distributions when master branch changed
