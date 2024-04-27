@@ -1,7 +1,7 @@
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 
-object Test {
+object UI {
     @JvmStatic
     val hello: String = "Hello World"
 

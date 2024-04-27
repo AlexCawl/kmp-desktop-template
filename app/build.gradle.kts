@@ -2,7 +2,7 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
     id("kotlin-convention")
-    id("org.jetbrains.compose")
+    id("compose-convention")
 }
 
 group = "org.alexcawl.template"
