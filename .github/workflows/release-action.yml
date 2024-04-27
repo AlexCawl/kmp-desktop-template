@@ -64,7 +64,7 @@ jobs:
         with:
           name: "Release #${{ github.run_number }} ${{ env.date }}"
           tag_name: ${{ env.tag }}
-          files: artifacts/*/*.*
+          files: artifacts/*/*/*.*
 
       - name: Delete previous
         uses: geekyeggo/delete-artifact@v2
