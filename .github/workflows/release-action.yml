@@ -15,7 +15,8 @@ jobs:
     name: Build release
     strategy:
       matrix:
-        os: [ ubuntu-latest, windows-latest, macos-latest ]
+        #        os: [ ubuntu-latest, windows-latest, macos-latest ]
+        os: [ ubuntu-latest ]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout project sources
@@ -58,13 +59,15 @@ jobs:
         with:
           path: artifacts
 
+      - name: Display structure of downloaded files
+        run: ls -R
+
       - name: Create release
         uses: softprops/action-gh-release@v0.1.7
         with:
           name: "Release #${{ github.run_number }} ${{ env.date }}"
           tag_name: ${{ env.tag }}
-          files: artifacts/*.*
-          generate_release_notes: true
+          files: artifacts/*
 
       - name: Delete previous
         uses: geekyeggo/delete-artifact@v2
