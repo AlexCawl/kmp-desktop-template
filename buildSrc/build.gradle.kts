@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     `kotlin-dsl`
 }
@@ -17,4 +19,10 @@ dependencies {
     implementation(libs.pluginDependency.kotlin.ksp) // -> id("com.google.devtools.ksp")
     implementation(libs.pluginDependency.kotlin.compose) // -> id("org.jetbrains.compose")
     implementation(libs.pluginDependency.kotlin.sql) // -> id("app.cash.sqldelight")
+}
+
+kotlin {
+    jvmToolchain {
+        languageVersion = JavaLanguageVersion.of(libs.versions.jdk.get())
+    }
 }

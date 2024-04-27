@@ -5,7 +5,7 @@ import org.gradle.kotlin.dsl.the
 val libs = the<org.gradle.accessors.dm.LibrariesForLibs>()
 
 plugins {
-    id("org.jetbrains.kotlin.jvm")
+    id("kotlin-convention")
     id("com.google.devtools.ksp")
 }
 
