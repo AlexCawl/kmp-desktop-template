@@ -1,0 +1,14 @@
+  on:
+    workflow_dispatch:
+
+  jobs:
+    build-release-for-linux:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Build release
+          uses: AlexCawl/kmp-desktop-template/.github/workflows/build-action.yml
+          with:
+            repo-name: AlexCawl/kmp-desktop-template
+            os-name: ubuntu-latest
+            java-name: 17
+            java-distribution: temurin

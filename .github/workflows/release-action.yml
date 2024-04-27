@@ -1,0 +1,35 @@
+name: Release Gradle project
+
+on:
+  workflow_call:
+    inputs:
+      repo-name:
+        required: true
+        type: string
+      os-name:
+        required: true
+        type: string
+      java-name:
+        required: true
+        type: string
+      java-distribution:
+        required: true
+        type: string
+
+jobs:
+  build-release:
+    runs-on: ${{ inputs.os-name }}
+    steps:
+      - name: Build project
+        uses: ${{ inputs.repo-name }}/.github/workflows/build-action.yml
+        with:
+          os-name: ${{ inputs.os-name }}
+          java-name: ${{ inputs.java-name }}
+          java-distribution: ${{ inputs.java-distribution }}
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Package
+          path: build/libs
+
