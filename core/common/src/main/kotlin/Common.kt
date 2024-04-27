@@ -1,1 +1,1 @@
-class Common
+object Common

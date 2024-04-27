@@ -16,4 +16,5 @@ dependencies {
     implementation(libs.pluginDependency.kotlin.serialization) // -> id("org.jetbrains.kotlin.plugin.serialization")
     implementation(libs.pluginDependency.kotlin.ksp) // -> id("com.google.devtools.ksp")
     implementation(libs.pluginDependency.kotlin.compose) // -> id("org.jetbrains.compose")
+    implementation(libs.pluginDependency.kotlin.sql) // -> id("app.cash.sqldelight")
 }
