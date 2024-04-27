@@ -11,7 +11,7 @@ env:
   JAVA_DISTRIBUTION: temurin
 
 jobs:
-  build-gradle-project:
+  package-gradle-project:
     name: Build release
     strategy:
       matrix:
@@ -30,8 +30,8 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
 
-      - name: Run build with Gradle Wrapper
-        run: ./gradlew build
+      - name: Run package with Gradle Wrapper
+        run: ./gradlew package
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
@@ -39,34 +39,34 @@ jobs:
           name: app-${{ matrix.os }}
           path: app/build/package/main/*/
 
-#  upload-release:
-#    name: Upload and create new release
-#    needs: build-gradle-project
-#    runs-on: ubuntu-latest
-#    permissions:
-#      contents: write
-#    steps:
-#      - name: Create environment variables
-#        run: |
-#          date="$(date +"%Y-%m-%d")"
-#          tag="Release_${{ github.run_number }}_$date"
-#          echo "date=$date" >> $GITHUB_ENV
-#          echo "tag=$tag" >> $GITHUB_ENV
-#
-#      - name: Download build artifacts
-#        uses: actions/download-artifact@v3
-#        with:
-#          path: artifacts
-#
-#      - name: Create release
-#        uses: softprops/action-gh-release@v0.1.7
-#        with:
-#          name: "Release #${{ github.run_number }} ${{ env.date }}"
-#          tag_name: ${{ env.tag }}
-#          files: artifacts/**/*.*
-#          generate_release_notes: true
-#
-#      - name: Delete previous
-#        uses: geekyeggo/delete-artifact@v2
-#        with:
-#          name: ${{ env.projectName }}*
+  upload-release:
+    name: Upload and create new release
+    needs: package-gradle-project
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Create environment variables
+        run: |
+          date="$(date +"%Y-%m-%d")"
+          tag="Release_${{ github.run_number }}_$date"
+          echo "date=$date" >> $GITHUB_ENV
+          echo "tag=$tag" >> $GITHUB_ENV
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          path: artifacts
+
+      - name: Create release
+        uses: softprops/action-gh-release@v0.1.7
+        with:
+          name: "Release #${{ github.run_number }} ${{ env.date }}"
+          tag_name: ${{ env.tag }}
+          files: artifacts/**/*.*
+          generate_release_notes: true
+
+      - name: Delete previous
+        uses: geekyeggo/delete-artifact@v2
+        with:
+          name: ${{ env.projectName }}*
