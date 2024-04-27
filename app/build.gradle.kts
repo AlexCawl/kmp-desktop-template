@@ -26,6 +26,7 @@ compose.desktop {
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            outputBaseDir.set(project.buildDir.resolve("package"))
             packageName = "kmp-desktop-template"
             packageVersion = "1.0.0"
         }

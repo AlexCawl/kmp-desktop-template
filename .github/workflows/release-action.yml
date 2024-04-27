@@ -36,8 +36,8 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: application-${{ matrix.os }}
-          path: app/build/libs
+          name: app-${{ matrix.os }}
+          path: app/build/package/main/*/${{ env.projectName }}*
 
   upload-release:
     name: Upload and create new release
