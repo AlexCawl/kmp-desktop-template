@@ -40,6 +40,12 @@ jobs:
           name: app-${{ matrix.os }}
           path: app/build/package/main/*/
 
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+
+      - name: Display structure of downloaded files
+        run: ls -R
+
   upload-release:
     name: Upload and create new release
     needs: package-gradle-project
